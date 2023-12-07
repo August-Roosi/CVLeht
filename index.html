@@ -1,96 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Tasuta Vihik - Avaleht</title>
+    <title>Vihku - Free Notebook for Students</title>
+    <!-- Include Bootstrap and jQuery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="header.html"></script>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <h1 class="title">Tasuta Vihik</h1>
-            <p class="lead">Õpi rohkem, kirjuta rohkem!</p>
-        </div>
-    </header>
 
-    <section class="main-content">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>Mis on Tasuta Vihik?</h2>
-                    <p>Tasuta Vihik on koolidele mõeldud tasuta vihik, mis on rahastatud reklaamidest, mis on vihikusse integreeritud. See annab õpilastele võimaluse saada tasuta haridusmaterjale ja samal ajal avastada huvitavaid reklaame erinevatelt ettevõtetelt.</p>
-                    <button id="learnMoreBtn" class="btn">Uuri Lähemalt</button>
-                    <div class="additional-info" id="additionalInfo1">
-                        <p>Siin saate lisada rohkem teavet selle linki kohta.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <img src="your_image.jpg" class="card-img-top" alt="Tasuta Vihik">
-                        <div class="card-body">
-                            <p class="card-text">Tasuta Vihik - Õpi rohkem, kirjuta rohkem!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Hero Section -->
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Welcome to Vihku</h1>
+        <p class="lead text-muted">A free notebook for students in Estonian schools.</p>
+        <a href="#" class="btn btn-primary">Get Vihku</a>
+    </div>
+</section>
 
-    <section class="benefits">
-        <div class="container text-center">
-            <h2>Kuidas see on kasulik õpilastele?</h2>
-            <p class="lead">Tasuta Vihik pakub mitmeid eeliseid õpilastele:</p>
-            <ul>
-                <li><a href="#" class="benefit-link" id="benefitLink1">Tasuta kvaliteetsed vihikud</a></li>
-                <li><a href="#" class="benefit-link" id="benefitLink2">Mitmekesised haridusmaterjalid</a></li>
-                <li><a href="#" class="benefit-link" id="benefitLink3">Reklaamid pakuvad uusi teadmisi ja võimalusi</a></li>
-                <li><a href="#" class="benefit-link" id="benefitLink4">Toetab ettevõtteid, kes toetavad haridust</a></li>
-            </ul>
-            <div class="additional-info" id="additionalInfo2">
-                <p>Siin saate lisada rohkem teavet nende linkide kohta.</p>
-            </div>
+<!-- Features Section -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Feature 1</h2>
+            <p>Description of Feature 1.</p>
         </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container text-center">
-            <p>&copy; 2023 Tasuta Vihik. Kõik õigused kaitstud.</p>
+        <div class="col-md-4">
+            <h2>Feature 2</h2>
+            <p>Description of Feature 2.</p>
         </div>
-    </footer>
-
-    <!-- Modal -->
-    <div class="modal" id="locationModal">
-        <div class="modal-content">
-            <span class="close" id="closeModal">&times;</span>
-            <h5>Koolide Asukohad Tartus</h5>
-            <p>Karlova Kool</p>
-            <p>Trefneri Gümnaasium</p>
-            <p>Poska Gümnaasium</p>
+        <div class="col-md-4">
+            <h2>Feature 3</h2>
+            <p>Description of Feature 3.</p>
         </div>
     </div>
+</div>
 
-    <script>
-        document.getElementById('learnMoreBtn').addEventListener('click', function() {
-            document.getElementById('locationModal').style.display = 'block';
+<!-- JavaScript Section -->
+<script>
+    // Your custom JavaScript code for the home page
+    // For example, you can add a function to handle a button click
+    $(document).ready(function () {
+        $(".btn-primary").click(function () {
+            alert("Button clicked! Add your functionality here.");
         });
+    });
+</script>
 
-        document.getElementById('closeModal').addEventListener('click', function() {
-            document.getElementById('locationModal').style.display = 'none';
-        });
+<script src="footer.html"></script>
 
-        const benefitLinks = document.querySelectorAll('.benefit-link');
-        const additionalInfos = document.querySelectorAll('.additional-info');
-
-        benefitLinks.forEach((link, index) => {
-            link.addEventListener('mouseover', function() {
-                additionalInfos[index].style.display = 'block';
-            });
-
-            link.addEventListener('mouseout', function() {
-                additionalInfos[index].style.display = 'none';
-            });
-        });
-    </script>
 </body>
 </html>
