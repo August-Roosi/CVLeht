@@ -21,6 +21,9 @@
                     <h2>Mis on Tasuta Vihik?</h2>
                     <p>Tasuta Vihik on koolidele mõeldud tasuta vihik, mis on rahastatud reklaamidest, mis on vihikusse integreeritud. See annab õpilastele võimaluse saada tasuta haridusmaterjale ja samal ajal avastada huvitavaid reklaame erinevatelt ettevõtetelt.</p>
                     <button id="learnMoreBtn" class="btn">Uuri Lähemalt</button>
+                    <div class="additional-info" id="additionalInfo1">
+                        <p>Siin saate lisada rohkem teavet selle linki kohta.</p>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card">
@@ -39,11 +42,14 @@
             <h2>Kuidas see on kasulik õpilastele?</h2>
             <p class="lead">Tasuta Vihik pakub mitmeid eeliseid õpilastele:</p>
             <ul>
-                <li>Tasuta kvaliteetsed vihikud</li>
-                <li>Mitmekesised haridusmaterjalid</li>
-                <li>Reklaamid pakuvad uusi teadmisi ja võimalusi</li>
-                <li>Toetab ettevõtteid, kes toetavad haridust</li>
+                <li><a href="#" class="benefit-link" id="benefitLink1">Tasuta kvaliteetsed vihikud</a></li>
+                <li><a href="#" class="benefit-link" id="benefitLink2">Mitmekesised haridusmaterjalid</a></li>
+                <li><a href="#" class="benefit-link" id="benefitLink3">Reklaamid pakuvad uusi teadmisi ja võimalusi</a></li>
+                <li><a href="#" class="benefit-link" id="benefitLink4">Toetab ettevõtteid, kes toetavad haridust</a></li>
             </ul>
+            <div class="additional-info" id="additionalInfo2">
+                <p>Siin saate lisada rohkem teavet nende linkide kohta.</p>
+            </div>
         </div>
     </section>
 
@@ -71,6 +77,19 @@
 
         document.getElementById('closeModal').addEventListener('click', function() {
             document.getElementById('locationModal').style.display = 'none';
+        });
+
+        const benefitLinks = document.querySelectorAll('.benefit-link');
+        const additionalInfos = document.querySelectorAll('.additional-info');
+
+        benefitLinks.forEach((link, index) => {
+            link.addEventListener('mouseover', function() {
+                additionalInfos[index].style.display = 'block';
+            });
+
+            link.addEventListener('mouseout', function() {
+                additionalInfos[index].style.display = 'none';
+            });
         });
     </script>
 </body>
