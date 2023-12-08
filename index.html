@@ -1,52 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Vihku - Free Notebook for Students</title>
-    <!-- Include Bootstrap and jQuery -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="header.html"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Vihku - Tasuta Haridus</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="skript.mjs" type="module" defer></script>
+
 </head>
+
 <body>
+    <!-- Lisame päise eraldi failist kasutades JavaScript-i -->
+    <header id="päis"></header>
 
-<!-- Hero Section -->
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">Welcome to Vihku</h1>
-        <p class="lead text-muted">A free notebook for students in Estonian schools.</p>
-        <a href="#" class="btn btn-primary">Get Vihku</a>
+    <header class="jumbotron text-center">
+        <h1>Tasuta Haridus kõigile lastele</h1>
+        <p class="lead">Vihku pakub tasuta vihikuid, toetades haridust ja võimaldades kõigil lastel õppida ilma takistusteta.</p>
+        <button class="btn btn-primary">Registreeri kohe</button>
+    </header>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Miks valida Vihku?</h2>
+                <p>Vihku on loodud eesmärgiga teha haridus kättesaadavaks kõikidele lastele, sõltumata nende majanduslikust
+                    olukorrast. Meie platvorm võimaldab õpilastel saada tasuta vihikuid, mis on rahastatud hoolikalt
+                    valitud reklaamide kaudu.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="placeholder-image.jpg" alt="Vihku pilt" class="img-fluid">
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>Populaarsed Vihku vihikud</h2>
+        <div class="row">
+            <!-- Siia lisatakse dünaamiliselt vihikute sisu -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="book1.jpg" class="card-img-top" alt="Vihik 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Matemaatika Vihik</h5>
+                        <p class="card-text">Õpi matemaatikat selle interaktiivse vihikuga.</p>
+                        <a href="#" class="btn btn-primary">Vaata rohkem</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="book2.jpg" class="card-img-top" alt="Vihik 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Eesti Keele Vihik</h5>
+                        <p class="card-text">Paranda oma eesti keele oskust selle vihikuga.</p>
+                        <a href="#" class="btn btn-primary">Vaata rohkem</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="book3.jpg" class="card-img-top" alt="Vihik 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Loodusteaduste Vihik</h5>
+                        <p class="card-text">Avasta loodusteadusi selle põneva vihikuga.</p>
+                        <a href="#" class="btn btn-primary">Vaata rohkem</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</section>
 
-<!-- Features Section -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Feature 1</h2>
-            <p>Description of Feature 1.</p>
-        </div>
-        <div class="col-md-4">
-            <h2>Feature 2</h2>
-            <p>Description of Feature 2.</p>
-        </div>
-        <div class="col-md-4">
-            <h2>Feature 3</h2>
-            <p>Description of Feature 3.</p>
-        </div>
-    </div>
-</div>
+    <!-- Lisame jaluse eraldi failist kasutades JavaScript-i -->
+    <footer id="jalus"></footer>
 
-<!-- JavaScript Section -->
-<script>
-    // Your custom JavaScript code for the home page
-    // For example, you can add a function to handle a button click
-    $(document).ready(function () {
-        $(".btn-primary").click(function () {
-            alert("Button clicked! Add your functionality here.");
-        });
-    });
-</script>
-
-<script src="footer.html"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>
