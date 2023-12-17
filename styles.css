@@ -1,2 +1,9 @@
+/* Lisa hover-efekt nuppudele */
+.nav-item  {
+    transition: 10000ms;
+    transition: background-color 0.3s; /* Värvuse muutuse efekt */
+}
 
-/* Kohandatud stiilid siia */
+.nav-item:hover {
+    background-color: #5858582f;
+}
