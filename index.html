@@ -1,86 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Vihku - Tasuta Haridus</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <script src="skript.mjs" type="module" defer></script>
-    <script src="efektid.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html{scroll-behavior:smooth;}
+        body {
+            overflow-x: hidden;
+            background-color: #F8F1EC;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
 
+        .container {
+            height: 300vh;
+            padding-top: 10%;
+            padding-bottom: 5%;
+            position: relative;
+        }
 
+        .links {
+            border: solid;
+            background-color: rgba(214, 154, 116, 0.25);
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-right: 1%;
+        }
+        .link{
+            color: black;
+            text-decoration: none;
+            margin: auto;
+            padding: 1em;
+        
+        }
+
+        .link:hover{
+            color: rgb(150, 150, 150);
+            text-decoration: none;
+            margin: auto;
+            padding: 1em;
+            transition: color 1s ease-in-out; /* Add smooth color transition */
+
+        
+        }
+
+        .logo-kast {
+            padding: 1%;
+        }
+        nav {
+            position: fixed;
+            background-color: #F8F1EC;
+            color: black;
+            text-align: center;
+            margin: 0em;
+            padding: 0em;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .box1 {
+            width: 90%;
+            height: 24em;
+            background-color: rgba(214, 154, 116, 0.25);
+            position: relative;
+            top: 0%;
+            right: 0%;
+            padding: 0%;
+            margin: 0%;
+            margin-left: auto;
+            border-radius:  0.1em 0 0 0.1em ;
+
+        }
+
+        .box2 {
+            width: 25%;
+            height: 30em;
+            background-color: rgba(214, 154, 116, 0.25);
+            position: relative;
+            top: -6%;
+            left: 0%;
+            margin: 0;
+            border-radius: 0 0.2em 0.2em 0;
+
+        }
+
+        .box3 {
+            width: 90%;
+            height: 22em;
+            background-color: rgba(214, 154, 116, 0.25);
+            position: relative;
+            top: 0%;
+            right: 0%;
+            padding: 0%;
+            margin: 0%;
+            margin-left: auto;
+            border-radius:  0.2em 0 0 0.2em ;
+        }
+        .kooli-tekst {
+            padding: 3%;
+            font-size:2em;
+        }
+        .box4 {
+            width: 60%;
+            height: 20em;
+            background-color: rgba(214, 154, 116, 0.25);
+            position: relative;
+            top: 0%;
+            left: 0%;
+            padding: 0%;
+            margin: 0%;
+            margin-left: auto;
+            border-radius:  0.3em 0 0 0.3em ;
+        }
+        .partneriks-tekst {
+            padding: 3%;
+            font-size:2em;
+        }
+
+        h1 {
+            width: fit-content;
+            position: relative;
+            top: 42%;
+            left: 20%;
+            font-size: 3em;
+            font-weight: 100;
+        }
+        #toote-pilt{
+            position: relative;
+
+        }
+
+        /*Animatsioon linkide jaoks: kood saadud -> "https://css-irl.info/animating-underlines/" */
+        a {
+        overflow: hidden;
+        display: block;
+        position: relative;
+        padding: 0.2em 0;
+        }
+        a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.1em;
+        background-color: hotpink;
+        opacity: 0;
+        transition: opacity 300ms, transform 300ms;
+
+        opacity: 1;
+        transform: translate3d(-100%, 0, 0);
+        }
+
+        a:hover::after,
+        a:focus::after{
+        opacity: 1;
+        transform: translate3d(0, 0.2em, 0);
+        transform: translate3d(0, 0, 0);
+        }
+
+        .offside-text {
+            width: 40em;
+            position: relative;
+            top: 30%;
+            padding: 3%;
+            left: 60%;
+            font-size: 1.2em;
+        }
+    
+        footer {
+            border-top: solid;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        @media (max-width: 868px) {
+
+            .box {
+                max-width: 100%;
+            }
+
+            .box1,
+            .box2 {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                top: auto;
+                right: auto;
+                margin: 10px;
+            }
+        }
+    </style>
+    <title>Responsive Layout</title>
 </head>
-
 <body>
-    <!-- Lisame päise eraldi failist kasutades JavaScript-i -->
-    <header id="päis"></header>
+    <nav>
+        <div class="logo-kast">
+            <img id="logo-pilt" src="vihku_logo.png" alt="Page Icon" width="100px" height="51px">
+        </div>
+        <div class="links">
+            <a href="#Kooli" class="link">Vihku Kooli</a>
+            <a href="#Partneriks" class="link">Koostööpartnerile</a>
+            <a href="#Kontakt" class="link">Kontakt</a>
+        </div>
+    </nav>
 
-    <header class="jumbotron text-center">
-        <h1>Tasuta Haridus kõigile lastele</h1>
-        <p class="lead">Vihku pakub tasuta vihikuid, toetades haridust ja võimaldades kõigil lastel õppida ilma takistusteta.</p>
-        <button class="btn btn-primary"><a href="kontakt.html">Registreeri kohe</a></button>
-    </header>
+    <div class="container" >
+        <div class="box box1">
+            <h1>TASUTA VIHIK GÜMNASISTIDELE</h1>
+        </div>
+        
+        <div class="box box2">
+            <p class="offside-text">-VIHKU ON A4 FORMAADIS KAUSTIK, MIDA SAAVAD 10.-12. KLASSI ÕPILASED ENDA KOOLIST TASUTA VÕTTA.</p>
+            <p class="offside-text">-VIHKU KAANTEL NING LEHE SERVADES ON EDASIÕPPIMISVÕIMALUSI, HUVIHARIDUST NING ÜHISKONDLIKE KÄITUMISNORME TUTVUSTAVAD REKLAAMID, MIS...</p>
+        </div>
+        <div class="box box3" id="Kooli">
+            <p class="kooli-tekst">Vihku kooli!</p>
+        </div>
+        <div class="box box4" id="Partneriks">
+            <p class="partneriks-tekst">Soovid hakata koostööpartneriks?</p>
+            <img id="toote-pilt" src="vihku_vihik.png" alt="Picture of a notebook">
 
-    <div class="container  mt-5">
-        <div class="row">
-            <div class="col-md-6">
-                <h2>Miks valida Vihku?</h2>
-                <p>Vihku on loodud eesmärgiga teha haridus kättesaadavaks kõikidele lastele, sõltumata nende majanduslikust
-                    olukorrast. Meie platvorm võimaldab õpilastel saada tasuta vihikuid, mis on rahastatud hoolikalt
-                    valitud reklaamide kaudu.</p>
-            </div>
-            <div class="col-md-6">
-                <img src="placeholder-image.jpg" alt="Vihku pilt" class="img-fluid">
-            </div>
         </div>
 
-        <hr>
 
-        <h2>Populaarsed Vihku vihikud</h2>
-        <div class="row">
-            <!-- Siia lisatakse dünaamiliselt vihikute sisu -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="book1.jpg" class="card-img-top" alt="Vihik 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Matemaatika Vihik</h5>
-                        <p class="card-text">Õpi matemaatikat selle interaktiivse vihikuga.</p>
-                        <a href="#" class="btn btn-primary">Vaata rohkem</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="book2.jpg" class="card-img-top" alt="Vihik 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Eesti Keele Vihik</h5>
-                        <p class="card-text">Paranda oma eesti keele oskust selle vihikuga.</p>
-                        <a href="#" class="btn btn-primary">Vaata rohkem</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="book3.jpg" class="card-img-top" alt="Vihik 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Loodusteaduste Vihik</h5>
-                        <p class="card-text">Avasta loodusteadusi selle põneva vihikuga.</p>
-                        <a href="#" class="btn btn-primary">Vaata rohkem</a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-
-    <!-- Lisame jaluse eraldi failist kasutades JavaScript-i -->
-    <footer id="jalus"></footer>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <footer id="Kontakt">
+        <p class="kontaktid">Joonatan Ristmäe, tel: 5366 8716, e-meil: joonatan@hot.com</p>
+    </footer>
 </body>
-
 </html>
