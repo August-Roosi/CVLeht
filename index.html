@@ -12,14 +12,25 @@
             padding: 0;
             font-family: Arial, sans-serif;
         }
+        
+        nav {
+            position: fixed;
+            background-color: #F8F1EC;
+            color: black;
+            text-align: center;
+            margin: 0em;
+            padding: 0em;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            z-index: 2;
+            width: 100%;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 
-        .container {
-            height: 300vh;
-            padding-top: 10%;
-            padding-bottom: 5%;
-            position: relative;
         }
-
+        .hamburger-menu {
+            display: none;
+        }
         .links {
             border: solid;
             background-color: rgba(214, 154, 116, 0.25);
@@ -27,6 +38,7 @@
             flex-direction: row;
             margin: auto;
             margin-right: 1%;
+
         }
         .link{
             color: black;
@@ -49,23 +61,20 @@
         .logo-kast {
             padding: 1%;
         }
-        nav {
-            position: fixed;
-            background-color: #F8F1EC;
-            color: black;
-            text-align: center;
-            margin: 0em;
-            padding: 0em;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            z-index: 2;
-            width: 100%;
+
+
+
+        
+        .container {
+            height: 350vh;
+            padding-top: 10%;
+            padding-bottom: 5%;
+            position: relative;
         }
 
         .box1 {
             width: 90%;
-            height: 24em;
+            height: 20%;
             background-color: rgba(214, 154, 116, 0.25);
             position: relative;
             top: 0%;
@@ -74,12 +83,11 @@
             margin: 0%;
             margin-left: auto;
             border-radius:  0.1em 0 0 0.1em ;
-
         }
 
         .box2 {
             width: 25%;
-            height: 30em;
+            height: 30%;
             background-color: rgba(214, 154, 116, 0.25);
             position: relative;
             top: -6%;
@@ -89,9 +97,17 @@
 
         }
 
+        .tutvustav-tekst {
+            width: 40em;
+            position: relative;
+            top: 30%;
+            padding: 3%;
+            left: 60%;
+            font-size: 1.2em;
+        }
         .box3 {
-            width: 90%;
-            height: 22em;
+            width: 75%;
+            height: 22%;
             background-color: rgba(214, 154, 116, 0.25);
             position: relative;
             top: 0%;
@@ -107,7 +123,7 @@
         }
         .box4 {
             width: 60%;
-            height: 20em;
+            height: 20%;
             background-color: rgba(214, 154, 116, 0.25);
             position: relative;
             top: 0%;
@@ -132,7 +148,6 @@
         }
         #toote-pilt{
             position: relative;
-
         }
 
         /*Animatsioon linkide jaoks: kood saadud -> "https://css-irl.info/animating-underlines/" */
@@ -164,14 +179,6 @@
         transform: translate3d(0, 0, 0);
         }
 
-        .offside-text {
-            width: 40em;
-            position: relative;
-            top: 30%;
-            padding: 3%;
-            left: 60%;
-            font-size: 1.2em;
-        }
     
         footer {
             border-top: solid;
@@ -180,20 +187,87 @@
             justify-content: space-evenly;
         }
 
-        @media (max-width: 868px) {
+        @media (max-width: 500px) {
 
+
+            nav {
+                width: 100%;
+            }
+            .container {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                height: fit-content;
+                gap:1em;
+            }
             .box {
-                max-width: 100%;
+                padding: 1em;
+                display: block;
+                width: 90%;
+                position: static;
+                height: 10%;
+                margin: auto;
+            }
+            h1 {
+                position: static;
+                display: block;
+                font-size: 40px;
+            }
+            #toote-pilt {
+                width: 50%;
+                height: 30%;
+            }
+            .tutvustav-tekst {
+                display: block;
+                position:static;
+                font-size: 20px;
+                width: 80%;
+                margin: auto;
+            }
+            footer {
+                width: 100%;
             }
 
-            .box1,
-            .box2 {
-                position: relative;
-                bottom: auto;
-                left: auto;
-                top: auto;
-                right: auto;
-                margin: 10px;
+            .links {
+               display: none; /* Hide regular links */
+            }
+
+            .hamburger-menu {
+                display: flex;
+                align-items: center;
+            }
+
+            .hamburger-icon {
+                display: block;
+                cursor: pointer;
+                font-size: 24px;
+                margin-right: 10px;
+            }
+
+            .hamburger-menu ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 60px; /* Adjust as needed */
+                left: 0;
+                width: 100%;
+                background-color: #F8F1EC;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+                display: none;
+            }
+
+            .hamburger-menu ul li {
+                padding: 15px;
+                text-align: center;
+                border-bottom: 1px solid #ccc;
+            }
+
+            .hamburger-menu.active ul {
+                display: flex;
             }
         }
     </style>
@@ -209,7 +283,17 @@
             <a href="#Partneriks" class="link">Koostööpartnerile</a>
             <a href="#Kontakt" class="link">Kontakt</a>
         </div>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon">&#9776;</div>
+            <ul>
+                <li><a href="#Kooli" class="link">Vihku Kooli</a></li>
+                <li><a href="#Partneriks" class="link">Koostööpartnerile</a></li>
+                <li><a href="#Kontakt" class="link">Kontakt</a></li>
+            </ul>
+        </div>
     </nav>
+
+    
 
     <div class="container" >
         <div class="box box1">
@@ -217,8 +301,8 @@
         </div>
         
         <div class="box box2">
-            <p class="offside-text">-VIHKU ON A4 FORMAADIS KAUSTIK, MIDA SAAVAD 10.-12. KLASSI ÕPILASED ENDA KOOLIST TASUTA VÕTTA.</p>
-            <p class="offside-text">-VIHKU KAANTEL NING LEHE SERVADES ON EDASIÕPPIMISVÕIMALUSI, HUVIHARIDUST NING ÜHISKONDLIKE KÄITUMISNORME TUTVUSTAVAD REKLAAMID, MIS...</p>
+            <p class="tutvustav-tekst">-VIHKU ON A4 FORMAADIS KAUSTIK, MIDA SAAVAD 10.-12. KLASSI ÕPILASED ENDA KOOLIST TASUTA VÕTTA.</p>
+            <p class="tutvustav-tekst">-VIHKU KAANTEL NING LEHE SERVADES ON EDASIÕPPIMISVÕIMALUSI, HUVIHARIDUST NING ÜHISKONDLIKE KÄITUMISNORME TUTVUSTAVAD REKLAAMID, MIS...</p>
         </div>
         <div class="box box3" id="Kooli">
             <p class="kooli-tekst">Vihku kooli!</p>
@@ -234,5 +318,17 @@
     <footer id="Kontakt">
         <p class="kontaktid">Joonatan Ristmäe, tel: 5366 8716, e-meil: joonatan@hot.com</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburgerIcon = document.querySelector('.hamburger-icon');
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+    
+            // Toggle the visibility of the hamburger menu
+            hamburgerIcon.addEventListener('click', function () {
+                hamburgerMenu.classList.toggle('active');
+            });
+        });
+    </script>
+    
 </body>
 </html>
