@@ -20,7 +20,6 @@
         nav {
             background-color: #F8F1EC;
             color: black;
-            text-align: center;
             margin: 0em;
             padding: 0em;
             display: flex;
@@ -37,9 +36,7 @@
         }
 
         .container {
-            margin-top: 1%;
-            height: 200vh;
-            padding-bottom: 5%;
+            height: fit-content;
             position: relative;
         }
 
@@ -56,18 +53,6 @@
             border-radius:  0.1em 0 0 0.1em ;
         }
 
-        .box2 {
-            width: 50%;
-            height: 60%;
-            background-color: rgba(214, 154, 116, 0.25);
-            position: relative;
-            top: -5%;
-            left: 0%;
-            padding: 2%;
-            margin: 0;
-            border-radius: 0 0.2em 0.2em 0;
-
-        }
         
         .dünaamiline {
             display: flex;
@@ -90,11 +75,9 @@
             font-size: 1.2em;
         }
         .partneriks-kast {
-            top: 10%;
-            position: relative;
-            left: 50%;
             width: 50%;
             height: 50%;
+            
         }
         .partneriks-tekst {
             padding: 3%;
@@ -102,8 +85,6 @@
             margin: 0;
         }
         .kooli-kast {
-            position: relative;
-            left: 50%;
             width: 60%;
             height: 50%;
         }
@@ -123,6 +104,15 @@
         #toote-pilt{
             position: relative;
         }
+            
+        footer {
+            height: 10%;
+            border-top: solid;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            padding: 1%;
+        }
 
         /*Animatsioon linkide jaoks: kood saadud -> "https://css-irl.info/animating-underlines/" */
         a {
@@ -130,6 +120,7 @@
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
             background-color: #F8F1EC;
             width: fit-content;
+            height: fit-content;
             padding: 1%;
             border-radius: 1%;
             color: black;
@@ -181,21 +172,13 @@
             margin-bottom: 3em;
             z-index: 1;
             width: 160px;
-
         }
 
         /* Show the tooltip text when you mouse over the tooltip container */
         .tooltip:hover .tooltiptext {
         visibility: visible;
         }
-    
-        footer {
-            height: 10%;
-            border-top: solid;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-        }
+
 
         @media (max-width: 500px) {
 
@@ -273,7 +256,7 @@
             <div class="box box1">
                 <h1>TASUTA VIHIK GÜMNASISTIDELE</h1>
                 <div class="dünaamiline">
-                    <img id="toote-pilt" src="vihku_vihik.png" alt="Picture of a notebook" width="30%">
+                    <img id="toote-pilt" src="vihku_vihik.png" alt="Picture of a notebook" width="35%">
 
                     <div>
                         <p class="tutvustav-tekst">
@@ -290,34 +273,36 @@
                 </div>
            
             </div>
-            <div class="box box2">
-                <div class="partneriks-kast">
-                    <p class="partneriks-tekst">Soovid hakata koostööpartneriks?</p>
-                    <a href="vihku_näidis.pdf">Uuri vihku näidist!</a>
-                    <div class="kontakt-kast ">
-                        <p>Kirjuta meile</p>
-                        <p class="tooltip">
-                            <a  onclick="kopeeri()" id="kopeeri-väli">info@vihku.ee </a>
-                            <span class="tooltiptext">Klõpsa, et kopeerida e-post</span>
-                        </p>
-                    </div>
-                </div>
-    
-                <div class="kooli-kast">
-                    <p class="kooli-tekst">Vihku kooli!</p>
-                    <div class="kontakt-kast ">
-                        <p>Kirjuta meile</p>
-                        <p class="tooltip">
-                            <a  onclick="kopeeri()" id="kopeeri-väli">info@vihku.ee </a>
-                            <span class="tooltiptext">Klõpsa, et kopeerida e-post</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
+  
         </div>
 
         <footer>
-            <p class="kontaktid">Joonatan Ristmäe, tel: 5366 8716, e-meil: joonatan@hot.com</p>
+
+            <div class="kooli-kast">
+                <p class="kooli-tekst">Vihku kooli!</p>
+                <div class="kontakt-kast ">
+                    <p>Kirjuta meile</p>
+                    <p class="tooltip">
+                        <a  onclick="kopeeri()" id="kopeeri-väli">info@vihku.ee </a>
+                        <span class="tooltiptext">Klõpsa, et kopeerida e-post</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="partneriks-kast">
+                <p class="partneriks-tekst">Soovid hakata koostööpartneriks?</p>
+                <div class="kontakt-kast">
+                    <p>Kirjuta meile</p>
+                    <p class="tooltip">
+                        <a  onclick="kopeeri()" id="kopeeri-väli">info@vihku.ee </a>
+                        <span class="tooltiptext">Klõpsa, et kopeerida e-post</span>
+                    </p>
+                </div>
+
+            </div>
+            <a href="vihku_näidis.pdf">Uuri vihku näidist!</a>
+
+
         </footer>
     </div>
     <script>
@@ -327,7 +312,7 @@
             if (window.innerWidth < 500) {
                 var cards = document.querySelectorAll('.box');
 
-                cards.forEach(function (acard) {
+                cards.forEach(function (card) {
                     var rect = card.getBoundingClientRect();
                     var windowHeight = window.innerHeight;
 
