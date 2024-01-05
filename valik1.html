@@ -3,31 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/product-sans" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
     <style>
-        html{scroll-behavior:smooth;}
         body {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            scroll-snap-type: y mandatory ;
+            height: 400vh;
             overflow-x: hidden;
             background-color: #F8F1EC;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        .üldine-kast{
-            height: 100vh;
-            overflow-y: scroll;
+            font-family: 'Product Sans', sans-serif;
+
         }
         
         nav {
             background-color: #F8F1EC;
             color: black;
+            text-align: center;
             margin: 0em;
             padding: 0em;
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
             z-index: 2;
             width: 100%;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 
         }
     
@@ -36,82 +39,91 @@
         }
 
         .container {
-            height: fit-content;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            height: 400vh;
         }
-
-        .box1 {
-            width: 90%;
-            height: 40%;
-            background-color: rgba(214, 154, 116, 0.25);
-            position: relative;
-            top: 0%;
-            right: 0%;
-            padding: 1%;
-            margin: 0%;
-            margin-left: auto;
-            border-radius:  0.1em 0 0 0.1em ;
+        .container > * {
+            flex-grow:1;
+            scroll-snap-align: center;
         }
-
         
         .dünaamiline {
             display: flex;
+            flex-grow:0;
         }
 
         h1 {
             width: fit-content;
-            position: relative;
-            top: 2%;
-            left: 30%;
             font-size: 3em;
             font-weight: 100;
+            padding: 0.8em;
+            padding-top: 0;
+            margin: auto;
+            color: #B34B00;
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 200;
+            line-height: normal;
+            text-transform:uppercase;
+        }
+        #toote-pilt{
+            width: 50%;
         }
 
         .tutvustav-tekst {
-            width: 50%;
-            position: relative;
+            width: 95%;
             padding: 0%;
-            left: 30%;
             font-size: 1.2em;
+            color: rgb(49, 49, 49);
         }
+        .lähemalt-kast {
+            background-color: rgba(214, 154, 116, 0.25);
+            padding: 2em;
+            height: fit-content;
+        }
+
         .partneriks-kast {
-            width: 50%;
-            height: 50%;
-            
-        }
-        .partneriks-tekst {
-            padding: 3%;
-            font-size:2em;
-            margin: 0;
+            padding: 2em;
+            height: fit-content;
         }
         .kooli-kast {
-            width: 60%;
-            height: 50%;
+            padding: 2em;
+            background-color: rgba(214, 154, 116, 0.25);
         }
-        .kooli-tekst {
+
+        .kasti-pealkiri {
+            width: 90%;
             padding: 3%;
-            margin: 0;
             font-size:2em;
+            margin: 0;
+        }
+        .kasti-tekst {
+            width: 90%;
+            font-size:1.25em;
         }
 
         .kontakt-kast {
+            margin: auto;
             display: flex;
             flex-direction: row;
+            width: fit-content;
         }
         .kontakt-kast > p {
             padding-right: 10px;
+            width: fit-content;
+            height: 100%;
+            width: 100%;
+            margin: auto;
         }
-        #toote-pilt{
-            position: relative;
+        .kontakt-kast * {
+            margin: 0;
+            padding: 0.5em;
         }
-            
         footer {
-            height: 10%;
-            border-top: solid;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            padding: 1%;
+            height: 5%;
+            border-top: solid 1px;
         }
 
         /*Animatsioon linkide jaoks: kood saadud -> "https://css-irl.info/animating-underlines/" */
@@ -120,7 +132,6 @@
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
             background-color: #F8F1EC;
             width: fit-content;
-            height: fit-content;
             padding: 1%;
             border-radius: 1%;
             color: black;
@@ -128,6 +139,10 @@
             overflow: hidden;
             display: block;
             position: relative;
+            transition: 0.08s;
+        }
+        a:active{
+            background-color: #ececec;
         }
         a::after {
             content: '';
@@ -150,98 +165,191 @@
             transform: translate3d(0, 0, 0);
         }
 
-       /* Tooltip container */
-        .tooltip {
-        width: fit-content;
-        display: inline-block;
-        }
 
-        /* Tooltip text */
-        .tooltip .tooltiptext {
-            position: relative;
-            visibility: hidden;
-            width: 120px;
-            background-color: black;
-            color: #fff;
-            text-align: center;
-            padding: 5px;
-            border-radius: 6px;
-            bottom: 120%;
-            left: 0%;
-            margin-left: -5px;
-            margin-bottom: 3em;
-            z-index: 1;
-            width: 160px;
-        }
+       
+        @media (min-height: 1000px) {
 
-        /* Show the tooltip text when you mouse over the tooltip container */
-        .tooltip:hover .tooltiptext {
-        visibility: visible;
-        }
-
-
-        @media (max-width: 500px) {
-
+            body {
+                font-size: 1.5em;
+                overflow-x: hidden;
+                height: 300vh;
+            }
             nav {
                 width: 100%;
             }
             .container {
+                height: 300vh;
                 width: 100%;
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start;
-                height: fit-content;
-                gap:3em;
-                padding-bottom: 2em;
-            }
-            .container {
-                display: none;
-            }
-
-            .box {
-                margin: 3%;
-                padding: 3%;
-                display: block;
-                position: static;
-                height: 100vh;
-                width: auto;
-                border-radius: 1%;
-                box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.3); /* Horizontal offset, vertical offset, blur radius, color */
-                transition: transform 0.3s, background-color 0.3s;
-            }
-            .focused {
-                background-color: rgba(214, 154, 116, 0.8);
-                transform: scale(1.1);
             }
             h1 {
-                position: static;
-                display: block;
-                font-size: 30px;
-                text-align: center;
-                margin-top: 50%;
-                padding: 2%;
+                padding-top: 1em;
+                font-size: 3em;
+            }
+            .container > * {
+                padding: 1em;
+                height: fit-content;
+                flex-grow: 1;
+            }
+
+            .container > * > p {
+                padding: 1em;
             }
             #toote-pilt {
-                width: 70%;
-                height: 50%;
+                display: none;
             }
-            .tutvustav-tekst {
-                display: block;
-                position: static;
-                font-size: 20px;
-                width: 80%;
-                margin: auto;
-                margin-top: 5%;
-
-            }
+            
             footer {
                 width: 100%;
-                height: 100vh;
+                height: 5em;
+            }
+            .kasti-pealkiri {
+                font-size: 2em;
+            }
+
+            .kasti-tekst {
+                font-size: 1.5em;
             }
 
 
         }
+        @media (max-width: 500px) {
+
+            body {
+                overflow-x: hidden;
+                height: 400vh;
+            }
+            nav {
+                width: 100%;
+            }
+            .container {
+                height: 400vh;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            h1 {
+                padding-top: 1em;
+                font-size: 30px;
+            }
+            .container > * {
+                padding: 1em;
+                height: fit-content;
+                flex-grow: 1;
+            }
+
+            .container > * > p {
+                padding: 1em;
+            }
+            #toote-pilt {
+                display: none;
+            }
+            
+            footer {
+                width: 100%;
+                height: 5em;
+            }
+            .kasti-pealkiri {
+                font-size: 1.5em;
+            }
+
+            .kasti-tekst {
+                font-size: 1em;
+            }
+
+
+        }   @media (max-width: 350px) {
+
+            body {
+                height: 300vh;
+                font-size: 0.6em;
+            }
+            nav {
+                width: 100%;
+            }
+            .container {
+                height: 300vh;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            h1 {
+                padding-top: 1em;
+                font-size: 20px;
+            }
+            .container > * {
+                padding: 1em;
+                height: fit-content;
+                flex-grow: 1;
+            }
+
+            .container > * > p {
+                padding: 1em;
+            }
+            #toote-pilt {
+                display: none;
+            }
+            
+            footer {
+                width: 100%;
+                height: 5em;
+            }
+            .kasti-pealkiri {
+                font-size: 1em;
+            }
+
+            .kasti-tekst {
+                font-size: 1em;
+            }
+
+
+        }
+         @media (max-width: 900px) {
+
+            body {
+                height: 400vh;
+            }
+            nav {
+                width: 100%;
+            }
+            .container {
+                height: 400vh;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            h1 {
+                padding-top: 1em;
+            }
+            .container > * {
+                padding: 1em;
+                height: fit-content;
+                flex-grow: 1;
+            }
+
+            .container > * > p {
+                padding: 1em;
+            }
+            #toote-pilt {
+                display: none;
+            }
+            
+            footer {
+                width: 100%;
+                height: 5em;
+            }
+            .kasti-pealkiri {
+            }
+
+            .kasti-tekst {
+            }
+
+
+        }
+  
     </style>
+
     <title>Responsive Layout</title>
 </head>
 <body>
@@ -253,77 +361,85 @@
         </nav>
 
         <div class="container" >
-            <div class="box box1">
-                <h1>TASUTA VIHIK GÜMNASISTIDELE</h1>
-                <div class="dünaamiline">
-                    <img id="toote-pilt" src="vihku_vihik.png" alt="Picture of a notebook" width="35%">
+            <div class="dünaamiline">
+                <img id="toote-pilt" src="vihku_vihik.png" width="50%" alt="Picture of a notebook" >
 
-                    <div>
-                        <p class="tutvustav-tekst">
-                            +VIHKU ON A4 FORMAADIS KAUSTIK, MIDA SAAVAD 10.-12. KLASSI ÕPILASED ENDA KOOLIST TASUTA VÕTTA.
-                        </p>
-                        <p class="tutvustav-tekst">
-                            Vihkust leiad hulgaldaselt ruumi kirjutamiseks, valemilehe, joonlaua ja kasulikud teadmised.
-                        </p>
-                        <p class="tutvustav-tekst">
-                            Vihku reklaamid on noorte jaoks kasulikud! Kajastust leiavad nii edasiõppimisvõimalused, huviharidus kui ka üldühiskondlikud teemad.
-                        </p>    
-                    </div>
-               
+                <div>
+                    <h1>Tasuta vihik gümnasistitele</h1>
+
+                    <p class="tutvustav-tekst">
+                        Tahad meelde tuletada valemid, mõõta kolmnurga haara või leida enda unistuste eriala? Kõik see Vihkust!
+                    </p>
+                    <p class="tutvustav-tekst">
+                        Vihku on A4 formaadis kaustik, mida saavad gümnaasiumiõpilased  enda koolist võtta tasuta. 
+                    </p>
+                    <p class="tutvustav-tekst">
+                        Esimesed Vihkud gümnaasiumites <span style="color: black;">2024 kevadel!</span>
+                    </p>    
                 </div>
-           
+            
             </div>
-  
-        </div>
 
-        <footer>
+            
+            
+        
+            <div class="lähemalt-kast">
+                <p class="kasti-pealkiri">Vihku kooli!</p>
+                <p class="kasti-tekst">
+                    
+                    Vihkus on valemileht, joonlaud, uued teadmised ja hulgaldaselt ruumi kirjutamiseks.  Kaustik jõuab noorteni tänu kasulike reklaamidele. Kajastust leiavad nii edasiõppimisvõimalused, huviharidus kui ka üldühiskondlikud teemad.
+                </p>
+                <p class="kasti-tekst">
+                    Vihku sai alguse meie enda praktilisest vajadusest sellise “abimehe” järgi. Ausõna, joonlauda ei olnud kunagi kotis kaasas, vihikus oli alati ruum otsas ja lahedad enesearendamisvõimalused ning gümnasistidele suunatud teadmised olid peitunud infomüra alla. 
+                </p>
+                <p class="kasti-tekst">
+                    Kaustikud jõuavad gümnaasiumiõpilasteni koostöös Eesti Õpilasesinduste Liiduga - pole vaja muretseda, et Vihkud kapi peale tolmu koguma jäävad.
+                </p>
+            </div>
+            <div class="partneriks-kast">
+                <p class="kasti-pealkiri">Soovid hakata koostööpartneriks?</p>
+                <p class="kasti-tekst">
+                    Soovid kõnetada gümnaasiuminoori? Usud, et sinu reklaamist on neile kasu? Tahad tutvustada keskooliõpilastele edasiõppimisvõimalusi, huviharidust või ühiskondlike käitumisnorme?
+                </p>
+                <p class="kasti-tekst">
+                    Olgu selleks tervist edendav või kõrgkooli kutsuv reklaam -- Vihkusse sobib see väga hästi! Reklaam jõuab sihtgrupini otse ja pakub samaaegselt neile kasulike hüvesid. Just tugevalt sihitud reklaam on Vihku suurim boonus, Sinu reklaam on alati gümnasistidega kaasas -- nii matemaatika tunnis trigonomeetriat õppides kui vabal ajal laevade pommitamist mängides!
+                </p>
+                <p class="kasti-tekst">
+                    Soovime esimesed Vihkud gümnasistideni viia kevadel 2024. Ole esimeste seas ja tee ennast noorte hulgas nähtavaks!
+                </p>
+                <a href="vihku_näidis.pdf" target="_blank">Uuri vihku näidist!</a>
+            </div>
 
             <div class="kooli-kast">
-                <p class="kooli-tekst">Vihku kooli!</p>
-                <div class="kontakt-kast ">
-                    <p>Kirjuta meile</p>
-                    <p class="tooltip">
-                        <a  onclick="kopeeri()" id="kopeeri-väli">info@vihku.ee </a>
-                        <span class="tooltiptext">Klõpsa, et kopeerida e-post</span>
-                    </p>
-                </div>
+                <p class="kasti-pealkiri">Vihku kooli!</p>
+                <p class="kasti-tekst">
+                    Tahad, et esimesed Vihkud jõuaksid kevadel ka Sinu kooli? Kirjuta meile ja paneme Sinu gümnaasiumi järjekorda!
+                </p>
+                <p class="kasti-tekst">
+                    Vihku on nii õpilase kui ka kooli jaoks tasuta!
+                </p>
             </div>
-
-            <div class="partneriks-kast">
-                <p class="partneriks-tekst">Soovid hakata koostööpartneriks?</p>
-                <div class="kontakt-kast">
-                    <p>Kirjuta meile</p>
-                    <p class="tooltip">
-                        <a  onclick="kopeeri()" id="kopeeri-väli">info@vihku.ee </a>
-                        <span class="tooltiptext">Klõpsa, et kopeerida e-post</span>
-                    </p>
-                </div>
-
+ 
+        </div>
+        <footer>
+            <div class="kontakt-kast ">
+                <p>Kirjuta meile</p>
+                <p class="popup" onclick="myFunction()">
+                    <a  onclick="kopeeri()" id="kopeeri-väli">info@vihku.ee </a>
+                </p>
             </div>
-            <a href="vihku_näidis.pdf">Uuri vihku näidist!</a>
+        </footer>  
 
-
-        </footer>
     </div>
     <script>
-
-
-        window.addEventListener('scroll', function () {
-            if (window.innerWidth < 500) {
-                var cards = document.querySelectorAll('.box');
-
-                cards.forEach(function (card) {
-                    var rect = card.getBoundingClientRect();
-                    var windowHeight = window.innerHeight;
-
-                    if (rect.top < windowHeight / 2 && rect.bottom > windowHeight / 2) {
-                        card.classList.add('focused');
-                    } else {
-                        card.classList.remove('focused');
-                    }
-                });
-            }
-        });
+        function myFunction() {
+            var kopeeri = document.getElementById("kopeeri-väli");
+            kopeeri.innerText = "Kopeeritud!";
+            kopeeri.classList.toggle("show");
+            setTimeout(function() {
+                kopeeri.innerHTML = "info@vihku.ee";
+            }, 1000);
+        }
 
         function kopeeri() {
         // Get the text field
