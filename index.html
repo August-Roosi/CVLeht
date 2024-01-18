@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link rel="icon" type="image/png" href="vihku_logo_väike.png">
     <link href="https://fonts.cdnfonts.com/css/product-sans" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,10 +12,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
     <style>
         body {
-            overflow-y: scroll;
-            overflow-x: hidden;
-            scroll-snap-type: y mandatory ;
-            height: 300vh;
+            padding: 0;
+            margin: 0;
+        }
+                html, body {
+        position:relative;
+        overflow-x:hidden;
+        }
+        .wrapper {
+            position: relative;
+            overflow: hidden;
+            height: fit-content;
             background-color: #F8F1EC;
             margin: 0;
             padding: 0;
@@ -50,7 +57,6 @@
         .container > * {
             z-index: 1;
             flex-grow: 1;
-            scroll-snap-align: center;
         }
         
         .dünaamiline {
@@ -73,6 +79,9 @@
             line-height: normal;
             text-transform:uppercase;
         }
+        #toote-pilt-kinniselt-telefonil {
+            display: none;
+        }
         #toote-pilt-kinniselt{
             z-index: 1;
             width: 30%;
@@ -80,7 +89,7 @@
             padding-right: 2%;
         }
         #toote-pilt-lahtiselt{
-            z-index: -1;
+            z-index: 1;
             width: 60%;
             top: 220vh;
             right: -30vh;
@@ -152,11 +161,11 @@
             flex-direction: row;
         }
         .flex > a {
+            margin-top: auto;
+            margin-bottom: auto;
             padding: 0.2em;
             padding-top: 0em;
             padding-bottom: 0;
-            margin-top: 23px;
-            margin-bottom: 0px;
             margin-left: 5;
             height: fit-content;
         }
@@ -233,119 +242,12 @@
             transform: translate3d(0, 0, 0);
         }
 
-
        
-        @media (min-height: 1000px) {
+       
+       @media (max-width: 1000px) {
 
-            body {
-                font-size: 1.5em;
-                overflow-x: hidden;
-                height: 300vh;
-            }
-            nav {
-                width: 100%;
-            }
-            .container {
-                height: 300vh;
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-            }
-            h1 {
-                padding-top: 1em;
-                font-size: 3em;
-            }
-            .container > * {
-                padding: 1em;
+            .wrapper {
                 height: fit-content;
-                flex-grow: 1;
-            }
-
-            .container > * > p {
-                padding: 1em;
-            }
-            .flex {
-                padding: 1em;
-            }
-            #toote-pilt-kinniselt {
-                display: none;
-            }
-            
-            footer {
-                width: 100%;
-                height: 5em;
-            }
-            .kasti-pealkiri {
-                font-size: 2em;
-            }
-
-            .kasti-tekst {
-                font-size: 1.5em;
-            }
-            .flex {
-                padding: 1em;
-            }
-
-
-        }
-          @media (max-width: 350px)  {
-
-            .ilu-kast-1 {
-                display: none;
-            }
-            .ilu-kast-2 {
-                display: none;
-            }
-            body {
-                height: 200vh;
-                font-size: 1em;
-            }
-            nav {
-                width: 100%;
-            }
-            .container {
-                height: 200vh;
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-            }
-            h1 {
-                padding-top: 1em;
-                font-size: 1.5em;
-            }
-            .container > * {
-                padding: 1em;
-                height: fit-content;
-                flex-grow: 1;
-            }
-
-            .container > * > p {
-                padding: 1em;
-            }
-            .flex {
-                padding: 1em;
-            }
-            #toote-pilt-kinniselt {
-                display: none;
-            }  
-            
-            footer {
-                width: 100%;
-                height: 5em;
-            }
-            .kasti-pealkiri {
-                font-size: 1.5em;
-            }
-
-            .kasti-tekst {
-                font-size: 1em;
-            }
-
-
-        } @media (max-width: 900px) {
-
-            body {
-                height: 400vh;
             }
             nav {
                 width: 100%;
@@ -360,18 +262,21 @@
                 padding-top: 1em;
             }
             .container > * {
-                padding: 1em;
                 height: fit-content;
                 flex-grow: 1;
             }
-
+            #toote-pilt-kinniselt-telefonil {
+                width: 90%;
+                display: inherit;
+            }
             .container > * > p {
-                padding: 1em;
             }
             #toote-pilt-kinniselt {
                 display: none;
             }
-            
+            a {
+                margin:auto;
+            }
             footer {
                 width: 100%;
                 height: 5em;
@@ -381,48 +286,34 @@
             }
 
             #toote-pilt-lahtiselt{
-            z-index: -1;
-            width: 70%;
-            top: 300vh;
-            right: -30vh;
-            position: absolute;
+            margin-left: 2em;
+            width: 100%;
+            position: inherit;
         }
+        .ilu-kast-1 {
+                display: none;
+            }
+            .ilu-kast-2 {
+                display: none;
+            }
 
         }
         @media (max-width: 600px) {
-            #toote-pilt-lahtiselt{
-            z-index: -1;
-            width: 70%;
-            top: 330vh;
-            right: -30vh;
-            position: absolute;
-            }
+
 
         }
         @media (max-width: 500px) {
-            .ilu-kast-1 {
-                display: none;
-            }
-            .ilu-kast-2 {
-                display: none;
-            }
-            #toote-pilt-lahtiselt{
-                z-index: -1;
-                width: 80%;
-                top: 255vh;
-                right: -30vh;
-                position: absolute;
-            }
 
-            body {
-                overflow-x: hidden;
-                height: 300vh;
+
+            .wrapper {
+                height: fit-content;
             }
             nav {
                 width: 100%;
             }
             .container {
-                height: 300vh;
+
+                height: 280vh;
                 width: 100%;
                 display: flex;
                 flex-direction: column;
@@ -438,14 +329,13 @@
             }
 
             .container > * > p {
-                padding: 1em;
             }
             .flex {
                 padding: 1em;
             }
-            #toote-pilt-kinniselt {
-                display: none;
+            #toote-pilt-kinniselt-telefonil {
             }
+
             footer {
                 width: 100%;
                 height: 5em;
@@ -460,101 +350,188 @@
 
 
         }
+        @media (max-width: 400px)  {
+
+        .ilu-kast-1 {
+            display: none;
+        }
+        .ilu-kast-2 {
+            display: none;
+        }
+        .wrapper {
+            height: fit-content;
+            font-size: 1em;
+        }
+        nav {
+            width: 100%;
+        }
+        .container {
+            height: 350vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        h1 {
+            padding-top: 1em;
+            font-size: 1.5em;
+        }
+        .container > * {
+            padding: 1em;
+            height: fit-content;
+            flex-grow: 1;
+        }
+
+        .container > * > p {
+        }
+        .flex {
+            padding: 1em;
+        }
+        #toote-pilt-kinniselt-telefonil {
+        }  
+
+        footer {
+            width: 100%;
+            height: 5em;
+        }
+        .kasti-pealkiri {
+            font-size: 1.5em;
+        }
+
+        .kasti-tekst {
+            font-size: 1em;
+        }
+    }
 
 
+
+    @media (min-height: 1000px) {
+    .dünaamiline  {
+        padding: 2em;
+    }
+
+    .wrapper {
+        height: fit-content;
+        font-size: 1.25em;
+
+    }
+    .container {
+        height: 300vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    h1 {
+            padding-top: 1em;
+            font-size: 2em;
+    }
+    .kasti-pealkiri {
+        font-size: 2em;
+    }
+
+    .kasti-tekst {
+        font-size: 1.25em;
+    }
+
+    }
     
     </style>
 
     <title>Vihku</title>
 </head>
 <body>
+    <div class="wrapper">
+        <div class="ilu-kast-1"></div>
+        <div class="ilu-kast-2"></div>
 
-    <div class="ilu-kast-1"></div>
-    <div class="ilu-kast-2"></div>
-
-    <div class="üldine-kast">
-        <nav>
-            <div class="logo-kast">
-                <img id="logo-pilt" src="vihku_logo_uus.png" alt="Page Icon" width="140em">
-            </div>
-        </nav>
-
-        <div class="container" >
-            <div class="dünaamiline">
-                <img id="toote-pilt-kinniselt" src="vihku_vihik_kinniselt_väike.png" width="100%" alt="Picture of a notebook" >
-
-                <div>
-                    <h1>Tasuta vihik gümnasistidele</h1>
-
-                    <p class="tutvustav-tekst">
-                        Tahad meelde tuletada valemid, mõõta kolmnurga haara või leida enda unistuste eriala? Kõik see Vihkust!
-                    </p>
-                    <p class="tutvustav-tekst">
-                        Vihku on A4 formaadis kaustik, mida saavad gümnaasiumiõpilased  enda koolist võtta tasuta. 
-                    </p>
-                    <p class="tutvustav-tekst">
-                        Esimesed Vihkud gümnaasiumites <span style="color: black;">2024 kevadel!</span>
-                    </p>    
+        <div class="üldine-kast">
+            <nav>
+                <div class="logo-kast">
+                    <img id="logo-pilt" src="vihku_logo_uus.png" alt="Page Icon" width="140em">
                 </div>
-            
-            </div>
+            </nav>
 
+
+
+            <div class="container" >
+                <div class="dünaamiline">
+                    <img id="toote-pilt-kinniselt" src="vihku_vihik_kinniselt_väike.png" width="100%" alt="Picture of a notebook" >
+
+                    <div>
+                        <h1>Tasuta vihik gümnasistidele</h1>
+                        <img id="toote-pilt-kinniselt-telefonil" src="vihku_vihik_kinniselt_väike.png" width="100%" alt="Picture of a notebook" >
+
+                        <p class="tutvustav-tekst kasti-tekst">
+                            Tahad meelde tuletada valemid, mõõta kolmnurga haara või leida enda unistuste eriala? Kõik see Vihkust!
+                        </p>
+                        <p class="tutvustav-tekst kasti-tekst">
+                            Vihku on A4 formaadis kaustik, mida saavad gümnaasiumiõpilased  enda koolist võtta tasuta. 
+                        </p>
+                        <p class="tutvustav-tekst kasti-tekst">
+                            Esimesed Vihkud gümnaasiumites <span style="color: black;">2024 kevadel!</span>
+                        </p>    
+                    </div>
+                
+                </div>
+
+                
+                
             
-            
+                <div class="lähemalt-kast">
+                    <p class="kasti-pealkiri">Lähemalt Vihkust</p>
+                    <p class="kasti-tekst">
+                        
+                        Vihkus on valemileht, joonlaud, uued teadmised ja hulgaldaselt ruumi kirjutamiseks.  Kaustik jõuab noorteni tänu kasulikele reklaamidele. Kajastust leiavad nii edasiõppimisvõimalused, huviharidus kui ka üldühiskondlikud teemad.
+                    </p>
+                    <p class="kasti-tekst">
+                        Vihku sai alguse meie enda praktilisest vajadusest sellise “abimehe” järgi. Ausõna, joonlauda ei olnud kunagi kotis kaasas, vihikus oli alati ruum otsas ja lahedad enesearendamisvõimalused ning gümnasistidele suunatud teadmised olid peitunud infomüra alla. 
+                    </p>
+                    <p class="kasti-tekst">
+                        Kaustikud jõuavad gümnaasiumiõpilasteni koostöös Eesti Õpilasesinduste Liiduga - pole vaja muretseda, et Vihkud kapi peale tolmu koguma jäävad.
+                    </p>
+                </div>
+                <img id="toote-pilt-lahtiselt" src="vihku_vihik_lahtiselt_väike.png" alt="">
+
+                <div class="partneriks-kast">
+                    <p class="kasti-pealkiri">Soovid hakata koostööpartneriks?</p>
+                    <p class="kasti-tekst">
+                        Soovid kõnetada gümnaasiuminoori? Usud, et sinu reklaamist on neile kasu? Tahad tutvustada keskooliõpilastele edasiõppimisvõimalusi, huviharidust või ühiskondlikke käitumisnorme?
+                    </p>
+                    <p class="kasti-tekst">
+                        Olgu selleks tervist edendav või kõrgkooli kutsuv reklaam – Vihkusse sobib see väga hästi! Reklaam jõuab sihtgrupini otse ja pakub samaaegselt neile kasulikke hüvesid. Just tugevalt sihitud reklaam on Vihku suurim boonus, Sinu reklaam on alati gümnasistidega kaasas – nii matemaatika tunnis trigonomeetriat õppides kui vabal ajal laevade pommitamist mängides!
+                    </p>
         
-            <div class="lähemalt-kast">
-                <p class="kasti-pealkiri">Lähemalt Vihkust</p>
-                <p class="kasti-tekst">
-                    
-                    Vihkus on valemileht, joonlaud, uued teadmised ja hulgaldaselt ruumi kirjutamiseks.  Kaustik jõuab noorteni tänu kasulikele reklaamidele. Kajastust leiavad nii edasiõppimisvõimalused, huviharidus kui ka üldühiskondlikud teemad.
-                </p>
-                <p class="kasti-tekst">
-                    Vihku sai alguse meie enda praktilisest vajadusest sellise “abimehe” järgi. Ausõna, joonlauda ei olnud kunagi kotis kaasas, vihikus oli alati ruum otsas ja lahedad enesearendamisvõimalused ning gümnasistidele suunatud teadmised olid peitunud infomüra alla. 
-                </p>
-                <p class="kasti-tekst">
-                    Kaustikud jõuavad gümnaasiumiõpilasteni koostöös Eesti Õpilasesinduste Liiduga - pole vaja muretseda, et Vihkud kapi peale tolmu koguma jäävad.
-                </p>
-            </div>
-            <div class="partneriks-kast">
-                <p class="kasti-pealkiri">Soovid hakata koostööpartneriks?</p>
-                <p class="kasti-tekst">
-                    Soovid kõnetada gümnaasiuminoori? Usud, et sinu reklaamist on neile kasu? Tahad tutvustada keskooliõpilastele edasiõppimisvõimalusi, huviharidust või ühiskondlikke käitumisnorme?
-                </p>
-                <p class="kasti-tekst">
-                    Olgu selleks tervist edendav või kõrgkooli kutsuv reklaam – Vihkusse sobib see väga hästi! Reklaam jõuab sihtgrupini otse ja pakub samaaegselt neile kasulikke hüvesid. Just tugevalt sihitud reklaam on Vihku suurim boonus, Sinu reklaam on alati gümnasistidega kaasas – nii matemaatika tunnis trigonomeetriat õppides kui vabal ajal laevade pommitamist mängides!
-                </p>
-     
-                <p class="kasti-tekst">
-                    Soovime esimesed Vihkud gümnasistideni viia kevadel 2024. Ole esimeste seas ja tee ennast noorte hulgas nähtavaks!
-                </p>
-                <div class="flex">
-                    <p class="kasti-tekst">Vihku näidisega saad tutvuda</p>
-                    <a href="vihku_näidis.pdf" target="_blank">SIIN</a>
+                    <p class="kasti-tekst">
+                        Soovime esimesed Vihkud gümnasistideni viia kevadel 2024. Ole esimeste seas ja tee ennast noorte hulgas nähtavaks!
+                    </p>
+                    <div class="flex">
+                        <p class="kasti-tekst">Vihku näidisega saad tutvuda</p>
+                        <a href="vihku_näidis.pdf" target="_blank">SIIN</a>
+                    </div>
+            
                 </div>
-         
-            </div>
 
-            <img id="toote-pilt-lahtiselt" src="vihku_vihik_lahtiselt_väike.png" alt="">
 
-            <div class="kooli-kast">
-                <p class="kasti-pealkiri">Vihku kooli!</p>
-                <p class="kasti-tekst">
-                    Tahad, et esimesed Vihkud jõuaksid kevadel ka Sinu kooli? Kirjuta meile ja paneme Sinu gümnaasiumi järjekorda!
-                </p>
-                <p class="kasti-tekst">
-                    Vihku on nii õpilase kui ka kooli jaoks tasuta!
-                </p>
+
+                <div class="kooli-kast">
+                    <p class="kasti-pealkiri">Vihku kooli!</p>
+                    <p class="kasti-tekst">
+                        Tahad, et esimesed Vihkud jõuaksid kevadel ka Sinu kooli? Kirjuta meile ja paneme Sinu gümnaasiumi järjekorda!
+                    </p>
+                    <p class="kasti-tekst">
+                        Vihku on nii õpilase kui ka kooli jaoks tasuta!
+                    </p>
+                </div>
             </div>
+            <footer>
+                <div class="kontakt-kast ">
+                    <p>Kirjuta meile</p>
+                    <p class="popup" onclick="myFunction()">
+                        <a  onclick="kopeeri()" id="kopeeri-väli">info@vihku.ee </a>
+                    </p>
+                </div>
+            </footer>  
+
         </div>
-        <footer>
-            <div class="kontakt-kast ">
-                <p>Kirjuta meile</p>
-                <p class="popup" onclick="myFunction()">
-                    <a  onclick="kopeeri()" id="kopeeri-väli">info@vihku.ee </a>
-                </p>
-            </div>
-        </footer>  
-
     </div>
     <script>
         function myFunction() {
