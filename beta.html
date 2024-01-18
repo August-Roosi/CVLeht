@@ -21,9 +21,7 @@
             padding: 0;
             font-family: 'Product Sans', sans-serif;
             font-family: 'Raleway' ;
-
             font-weight: 300;
-        
         }
         
         nav {
@@ -36,7 +34,6 @@
             flex-direction: row;
             z-index: 2;
             width: 100%;
-
         }
     
         .logo-kast {
@@ -52,11 +49,12 @@
         }
         .container > * {
             z-index: 1;
-            flex-grow:1;
+            flex-grow: 1;
             scroll-snap-align: center;
         }
         
         .dünaamiline {
+            padding-top: 1%;
             display: flex;
             flex-grow:0;
         }
@@ -77,13 +75,15 @@
         }
         #toote-pilt-kinniselt{
             z-index: 1;
-            width: 35%;
+            width: 30%;
+            margin-left: 2%;
+            padding-right: 2%;
         }
         #toote-pilt-lahtiselt{
             z-index: -1;
             width: 60%;
             top: 220vh;
-            right: -20vw;
+            right: -30vh;
             position: absolute;
         }
 
@@ -170,23 +170,26 @@
         }
   
         .ilu-kast-1 {
-           width: 200px;
-           height: 800px;
-           background-color: #B34B00;
-           position: absolute;
-           top: 40vh; 
-           opacity: 0.2;
-           z-index: 0;
+            width: 200px;
+            height: 800px;
+            background-color: rgb(179, 75, 0);
+            position: absolute;
+            box-shadow: 10px 5px 5px rgba(179, 75, 0, 0.3);
+            top: 40vh; 
+            opacity: 0.2;
+            z-index: 0;
         }
         .ilu-kast-2 {
-           width: 850px;
-           height: 150px;
-           background-color: #B34B00;
-           position: absolute;
-           top: 165vh; 
-           left: 2vw;
-           opacity: 0.2;
-           z-index: 0;
+            width: 850px;
+            height: 150px;
+            background-color: #B34B00;
+            box-shadow: 10px 5px 5px rgba(179, 75, 0, 0.3);
+
+            position: absolute;
+            top: 145vh; 
+            left: 2vw;
+            opacity: 0.2;
+            z-index: 0;
         }
 
         /*Animatsioon linkide jaoks: kood saadud -> "https://css-irl.info/animating-underlines/" */
@@ -261,6 +264,9 @@
             .container > * > p {
                 padding: 1em;
             }
+            .flex {
+                padding: 1em;
+            }
             #toote-pilt-kinniselt {
                 display: none;
             }
@@ -276,10 +282,137 @@
             .kasti-tekst {
                 font-size: 1.5em;
             }
+            .flex {
+                padding: 1em;
+            }
 
 
         }
+          @media (max-width: 350px)  {
+
+            .ilu-kast-1 {
+                display: none;
+            }
+            .ilu-kast-2 {
+                display: none;
+            }
+            body {
+                height: 200vh;
+                font-size: 1em;
+            }
+            nav {
+                width: 100%;
+            }
+            .container {
+                height: 200vh;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            h1 {
+                padding-top: 1em;
+                font-size: 1.5em;
+            }
+            .container > * {
+                padding: 1em;
+                height: fit-content;
+                flex-grow: 1;
+            }
+
+            .container > * > p {
+                padding: 1em;
+            }
+            .flex {
+                padding: 1em;
+            }
+            #toote-pilt-kinniselt {
+                display: none;
+            }  
+            
+            footer {
+                width: 100%;
+                height: 5em;
+            }
+            .kasti-pealkiri {
+                font-size: 1.5em;
+            }
+
+            .kasti-tekst {
+                font-size: 1em;
+            }
+
+
+        } @media (max-width: 900px) {
+
+            body {
+                height: 400vh;
+            }
+            nav {
+                width: 100%;
+            }
+            .container {
+                height: 400vh;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            h1 {
+                padding-top: 1em;
+            }
+            .container > * {
+                padding: 1em;
+                height: fit-content;
+                flex-grow: 1;
+            }
+
+            .container > * > p {
+                padding: 1em;
+            }
+            #toote-pilt-kinniselt {
+                display: none;
+            }
+            
+            footer {
+                width: 100%;
+                height: 5em;
+            }
+            .flex {
+                padding: 1em;
+            }
+
+            #toote-pilt-lahtiselt{
+            z-index: -1;
+            width: 70%;
+            top: 300vh;
+            right: -30vh;
+            position: absolute;
+        }
+
+        }
+        @media (max-width: 600px) {
+            #toote-pilt-lahtiselt{
+            z-index: -1;
+            width: 70%;
+            top: 330vh;
+            right: -30vh;
+            position: absolute;
+            }
+
+        }
         @media (max-width: 500px) {
+            .ilu-kast-1 {
+                display: none;
+            }
+            .ilu-kast-2 {
+                display: none;
+            }
+            #toote-pilt-lahtiselt{
+                z-index: -1;
+                width: 80%;
+                top: 255vh;
+                right: -30vh;
+                position: absolute;
+            }
 
             body {
                 overflow-x: hidden;
@@ -307,6 +440,9 @@
             .container > * > p {
                 padding: 1em;
             }
+            .flex {
+                padding: 1em;
+            }
             #toote-pilt-kinniselt {
                 display: none;
             }
@@ -323,88 +459,8 @@
             }
 
 
-        }   @media (max-width: 350px)  {
-
-            body {
-                height: 200vh;
-                font-size: 1em;
-            }
-            nav {
-                width: 100%;
-            }
-            .container {
-                height: 200vh;
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-            }
-            h1 {
-                padding-top: 1em;
-                font-size: 1.5em;
-            }
-            .container > * {
-                padding: 1em;
-                height: fit-content;
-                flex-grow: 1;
-            }
-
-            .container > * > p {
-                padding: 1em;
-            }
-            #toote-pilt-kinniselt {
-                display: none;
-            }  
-            
-            footer {
-                width: 100%;
-                height: 5em;
-            }
-            .kasti-pealkiri {
-                font-size: 1.5em;
-            }
-
-            .kasti-tekst {
-                font-size: 1em;
-            }
-
-
         }
-         @media (max-width: 900px) {
 
-            body {
-                height: 400vh;
-            }
-            nav {
-                width: 100%;
-            }
-            .container {
-                height: 400vh;
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-            }
-            h1 {
-                padding-top: 1em;
-            }
-            .container > * {
-                padding: 1em;
-                height: fit-content;
-                flex-grow: 1;
-            }
-
-            .container > * > p {
-                padding: 1em;
-            }
-            #toote-pilt-kinniselt {
-                display: none;
-            }
-            
-            footer {
-                width: 100%;
-                height: 5em;
-            }
-
-        }
 
     
     </style>
@@ -425,7 +481,7 @@
 
         <div class="container" >
             <div class="dünaamiline">
-                <img id="toote-pilt-kinniselt" src="vihku_vihik_kinniselt.png" width="100%" alt="Picture of a notebook" >
+                <img id="toote-pilt-kinniselt" src="vihku_vihik_kinniselt_väike.png" width="100%" alt="Picture of a notebook" >
 
                 <div>
                     <h1>Tasuta vihik gümnasistidele</h1>
@@ -478,7 +534,7 @@
          
             </div>
 
-            <img id="toote-pilt-lahtiselt" src="vihku_vihik_lahtiselt.png" alt="">
+            <img id="toote-pilt-lahtiselt" src="vihku_vihik_lahtiselt_väike.png" alt="">
 
             <div class="kooli-kast">
                 <p class="kasti-pealkiri">Vihku kooli!</p>
